@@ -23,12 +23,12 @@ interface Budget {
 }
 
 interface PieChartProps {
-  budget: Budget[]
+  data: Budget[]
 }
 
-export default function PieChart_({ budget }: PieChartProps) {
+export default function PieChart_({ data }: PieChartProps) {
   
-  const chartData = budget.map((item: Budget) => ({
+  const chartData = data.map((item: Budget) => ({
     category: item.category,
     maximum: item.maximum,
     fill: item.theme
@@ -39,7 +39,7 @@ const chartConfig = {
       label: "Budget",
     },
     // Dynamic config based on budget data
-    ...budget.reduce((acc, item) => {
+    ...data.reduce((acc, item) => {
       acc[item.category] = {
         label: item.category,
         color: item.theme,

@@ -7,11 +7,14 @@ import {
 	CardTitle
 } from '@/app/_components/ui/card';
 import IconPot from '@/public/assets/images/icon-pot.svg';
+import IconCartRight from '@/public/assets/images/icon-caret-right.svg';
 import data from '@/app/_lib/data/data.json';
 import Image from 'next/image';
 import { intlFormat } from 'date-fns';
 import PieChart_ from '@/app/_components/PieChart';
 import Badge from '@/app/_components/Badge';
+import Link from 'next/link';
+import PageTitle from '../_components/PageTitle';
 
 
 export default function page() {
@@ -24,7 +27,7 @@ export default function page() {
 	const firstTransactions = transactions.slice(0, 5);
 	return (
 		<div className='w-full'>
-			<div className='text-xl font-bold mb-4'>Overview</div>
+			<PageTitle title='Overview'/>
 			<div className='cards flex flex-col md:flex-row gap-3 lg:gap-5 w-full lg:mb-2'>
 				<Card className='bg-black text-white flex-1'>
 					<CardHeader>
@@ -56,7 +59,12 @@ export default function page() {
 					<Card className='bg-white text-black flex-1 my-3 lg:my-5'>
 						<CardHeader className='flex flex-row justify-between'>
 							<CardTitle>Pots</CardTitle>
-							<CardDescription>See Details</CardDescription>
+							<CardDescription>
+								<Link href='/in/pots' className='flex gap-3 items-center hover:text-primary/90'>
+									<span>See Details</span> <span className='text-sm'><IconCartRight /></span>
+								</Link>
+								
+							</CardDescription>
 						</CardHeader>
 						<CardContent className='flex flex-col md:flex-row md:gap-3 '>
 							<div className='mb-4 md:w-[40%] mr-2'>
@@ -88,7 +96,12 @@ export default function page() {
 					<Card className='bg-white text-black flex-1 my-3'>
 						<CardHeader className='flex flex-row justify-between'>
 							<CardTitle>Transactions</CardTitle>
-							<CardDescription>See Details</CardDescription>
+							<CardDescription>
+								<Link href='/in/transactions' className='flex gap-3 items-center hover:text-primary/90'>
+									<span>View All</span> <span className='text-sm'><IconCartRight /></span>
+								</Link>
+								
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							{
@@ -126,11 +139,16 @@ export default function page() {
 					<Card className='bg-white text-black flex-1 my-3 lg:my-5'>
 						<CardHeader className='flex flex-row justify-between'>
 							<CardTitle>Budgets</CardTitle>
-							<CardDescription>See Details</CardDescription>
+							<CardDescription>
+								<Link href='/in/budgets' className='flex gap-3 items-center hover:text-primary/90'>
+									<span>See Details</span> <span className='text-sm'><IconCartRight /></span>
+								</Link>
+								
+							</CardDescription>
 						</CardHeader>
 						<CardContent className='md:flex'>
 							<div className='chart md:w-[60%]'>
-								<PieChart_ budget={ budgets} />
+								<PieChart_ data={ budgets} />
 							</div>
 							<div className='grid grid-cols-2 gap-3 md:w-[40%] md:grid-cols-1 md:justify-end'>
 								{budgets.map((budget) => {
@@ -144,7 +162,12 @@ export default function page() {
 					<Card className='bg-white text-black flex-1 mb-12'>
 						<CardHeader className='flex flex-row justify-between'>
 							<CardTitle>Recurring Bills</CardTitle>
-							<CardDescription>See Details</CardDescription>
+							<CardDescription>
+								<Link href='/in/recurring-bills' className='flex gap-3 items-center hover:text-primary/90'>
+									<span>See Details</span> <span className='text-sm'><IconCartRight /></span>
+								</Link>
+								
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<div className='bills'>

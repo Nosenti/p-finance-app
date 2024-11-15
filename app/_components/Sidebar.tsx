@@ -33,7 +33,7 @@ export default function Sidebar() {
 			<div className='flex flex-col h-full justify-between'>
 				
 				<ul
-					className={`flex flex-col w-full`}
+					className={`flex flex-col w-full pr-2 mr-2`}
 				>
 					<li>
 						<SidebarButton

@@ -21,15 +21,15 @@ export default function SidebarButton({
   return (
     <Link
       href={path}
-      className={`flex items-center
-        ${ isMinimized ? 'justify-center' : 'space-x-4 px-4'}
+      className={`flex items-center rounded-r-md px-4
+        ${ isMinimized ? 'justify-center' : 'space-x-4'}
         py-3 cursor-pointer border-l-4 border-primary
         ${isActive ? 'bg-background text-foreground font-semibold border-secondary_green' : 'text-gray-300 hover:text-background'}
       `}
     >
       <span className="transition-colors">
         {React.cloneElement(icon, {
-          className: `${isActive ? 'text-secondary_green' : 'text-gray-300'} h-6 w-6`,
+          className: `h-6 w-6 ${isActive? 'text-secondary_green':''}`,
         })}
       </span>
       {!isMinimized && (
