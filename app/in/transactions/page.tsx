@@ -385,7 +385,7 @@ export default function Page() {
 								onClick={() => table.setPageIndex(index)}
 								className={
 									table.getState().pagination.pageIndex === index
-										? 'bg-blue-500 text-white'
+										? 'bg-primary text-white'
 										: ''
 								}
 							>

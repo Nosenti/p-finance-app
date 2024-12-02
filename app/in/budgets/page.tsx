@@ -1,6 +1,7 @@
+'use client';
+
 import React from 'react'
 import PageTitle from '../_components/PageTitle';
-import { Button } from '@/app/_components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/_components/ui/card';
 import PieChart_ from '@/app/_components/PieChart';
 import data from '@/app/_lib/data/data.json';
@@ -8,22 +9,23 @@ import Badge from '@/app/_components/Badge';
 import IconCartRight from '@/public/assets/images/icon-caret-right.svg';
 import { Progress } from '@/app/_components/ui/progress';
 import Link from 'next/link';
+import AddNewBudget from './_components/AddNewBudget';
 
 export default function page() {
 	const budgets = data.budgets;
   return (
 		<div className='w-full'>
 			<span className='flex justify-between'>
-				<PageTitle title='Budgets' />
-				<Button>+ Add New Budget</Button>
+			  <PageTitle title='Budgets' />
+			  <AddNewBudget/>
 			</span>
-			<div className='flex flex-col lg:flex-row gap-3 items-start'>
+			<div className='flex flex-col lg:flex-row gap-3 items-start mt-2'>
 				<Card className='w-full lg:w-[40%]'>
 					<CardContent className='flex flex-col md:flex-row lg:flex-col lg:gap-3 lg:pt-8 lg:justify-center'>
-						<div className='chart md:w-[50%] lg:flex lg:justify-center'>
+						<div className='chart md:w-full lg:flex lg:justify-center items-center'>
 							<PieChart_ data={budgets} />
 						</div>
-						<div className='flex flex-col gap-2 p-4 md:w-[50%] lg:w-[100%]'>
+						<div className='flex flex-col gap-2 px-4 md:w-[50%] lg:w-[100%]'>
 							<p className='font-bold'>Spending Summary</p>
 							{budgets.map((budget, index) => {
 								return (

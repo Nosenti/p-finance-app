@@ -53,11 +53,11 @@ const chartConfig = {
   }, [chartData]);
 
   return (
-    <Card className="flex flex-col">
-      <CardContent className="flex-1 pb-0">
+    <Card className="flex flex-col h-[300px]">
+      <CardContent className="flex-1">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto"
+          className="w-full h-full"
         >
           <PieChart>
             <ChartTooltip
@@ -68,8 +68,8 @@ const chartConfig = {
               data={chartData}
               dataKey="maximum"
               nameKey="category"
-              innerRadius={60}
-              strokeWidth={5}
+              innerRadius={50}
+              strokeWidth={4}
             >
               <Label
                 content={({ viewBox }) => {
